@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    environment {
+        NAME="KENNEDY KIPRUTO"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Using Maven to build the code"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Unit and Integration Tests."
+            }
+        }
+        stage('Code Quality Check') {
+            steps {
+                echo "Check the quality of the code"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Using tools like AWS CLI to deploy to staging server"
+            }
+        }
+        stage('Approval') {
+            steps {
+                echo "Using Selenium to run integration tests on staging"
+                sleep time: 10, unit: 'SECONDS' // Sleep for 10 seconds
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+                echo "Using AWS CLI to deploy to a production server"
+            }
+        }
+    }
+}
